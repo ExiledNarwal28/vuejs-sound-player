@@ -1,15 +1,15 @@
 <template>
   <div :class="`${classes}-wrapper`">
     <div :class="`${classes}__player`">
-      <button v-if="showStop" @click="stop()" title="Stop" class="icon-stop2" ></button>
-      <button v-if="showPlay" @click="pause()" title="Play" :class="[ paused ? 'icon-play3' : 'icon-pause2' ]"></button>
+      <button v-if="!simpleControls || simpleControls && !paused" @click="stop()" title="Stop" class="icon-stop2" ></button>
+      <button v-if="!simpleControls || simpleControls && paused" @click="pause()" title="Play" :class="[ paused ? 'icon-play3' : 'icon-pause2' ]"></button>
       <div v-on:click="setPosition" :class="`${classes}__playback-time-wrapper`" title="Time played : Total time">
           <div v-bind:style="progressStyle" :class="`${classes}__playback-time-indicator`"></div>
           <span :class="`${classes}__playback-time-current`">{{currentTime}}</span>
           <span :class="`${classes}__playback-time-separator`"></span>
           <span :class="`${classes}__playback-time-total`">{{duration}}</span>
       </div>
-      <div v-if="showOptions" :class="`${classes}__extern-wrapper`">
+      <div v-if="!simpleControls" :class="`${classes}__extern-wrapper`">
         <button @click="download()" class="icon-download"></button>
         <button @click="changeLoop()" :class="[ innerLoop ? 'icon-spinner10' : 'icon-spinner11']"></button>
         <button @click="mute()" :class="[isMuted ? 'icon-volume-mute2': 'icon-volume-high' ]" title="Mute"></button>

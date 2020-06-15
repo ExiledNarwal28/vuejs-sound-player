@@ -31,17 +31,9 @@ export default {
       type: Boolean,
       default: false
     },
-    showStop: {
+    simpleControls: {
       type: Boolean,
-      default: true
-    },
-    showPlay: {
-      type: Boolean,
-      default: true
-    },
-    showOptions: {
-      type: Boolean,
-      default: true
+      default: false
     },
   },
   computed: {
