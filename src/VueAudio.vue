@@ -1,21 +1,21 @@
 <template>
   <div :class="`${classes}-wrapper`">
     <div :class="`${classes}__player`">
-      <a @click="stop()" title="Stop" class="icon-stop2" ></a>
-      <a @click="pause()" title="Play" :class="[ paused ? 'icon-play3' : 'icon-pause2' ]"></a>
+      <button v-if="showStop" @click="stop()" title="Stop" class="icon-stop2" ></button>
+      <button v-if="showPlay" @click="pause()" title="Play" :class="[ paused ? 'icon-play3' : 'icon-pause2' ]"></button>
       <div v-on:click="setPosition" :class="`${classes}__playback-time-wrapper`" title="Time played : Total time">
           <div v-bind:style="progressStyle" :class="`${classes}__playback-time-indicator`"></div>
           <span :class="`${classes}__playback-time-current`">{{currentTime}}</span>
           <span :class="`${classes}__playback-time-separator`"></span>
           <span :class="`${classes}__playback-time-total`">{{duration}}</span>
       </div>
-      <div :class="`${classes}__extern-wrapper`">
-        <a @click="download()" class="icon-download"></a>
-        <a @click="changeLoop()" :class="[ innerLoop ? 'icon-spinner10' : 'icon-spinner11']"></a>
-        <a @click="mute()" :class="[isMuted ? 'icon-volume-mute2': 'icon-volume-high' ]" title="Mute"></a>
-        <a v-on:mouseover="toggleVolume()" class="volume-toggle icon-paragraph-justify" title="Volume">
+      <div v-if="showOptions" :class="`${classes}__extern-wrapper`">
+        <button @click="download()" class="icon-download"></button>
+        <button @click="changeLoop()" :class="[ innerLoop ? 'icon-spinner10' : 'icon-spinner11']"></button>
+        <button @click="mute()" :class="[isMuted ? 'icon-volume-mute2': 'icon-volume-high' ]" title="Mute"></button>
+        <button v-on:mouseover="toggleVolume()" class="volume-toggle icon-paragraph-justify" title="Volume">
           <input orient="vertical" v-model.lazy="volumeValue" v-on:change="updateVolume()" v-show="hideVolumeSlider" type="range" min="0" max="100" class="volume-slider"/>
-        </a>
+        </button>
 
       </div>
     </div>
@@ -32,7 +32,7 @@
       height: 30px;
       line-height: 30px;
 
-      a {
+      button {
         cursor: pointer;
         display: inline-block;
         vertical-align: middle;
@@ -42,7 +42,7 @@
         display: inline-block;
         margin-left: 10px;
 
-        > a {
+        > button {
           margin-right: 5px;
           vertical-align: 0;
         }

@@ -30,7 +30,19 @@ export default {
     loop: {
       type: Boolean,
       default: false
-    }
+    },
+    showStop: {
+      type: Boolean,
+      default: true
+    },
+    showPlay: {
+      type: Boolean,
+      default: true
+    },
+    showOptions: {
+      type: Boolean,
+      default: true
+    },
   },
   computed: {
     duration: function () {

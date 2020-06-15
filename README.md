@@ -25,6 +25,9 @@ The component has following attributes:
  - **file** (String), required;
  - **autoPlay** (Boolean), optional, false by default;
  - **loop**  (Boolean), optional, false by default;
+ - **showStop**  (Boolean), optional, true by default;
+ - **showPlay**  (Boolean), optional, true by default;
+ - **showOptions**  (Boolean), optional, true by default;
 
  For styling the Bootstrap classes v 3.7 are used, so you may want to add [bootstrap css](https://www.npmjs.com/package/bootstrap-css) package or add via stylesheet link ```<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">```
 
