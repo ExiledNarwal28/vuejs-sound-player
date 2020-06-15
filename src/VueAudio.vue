@@ -2,7 +2,7 @@
   <div :class="`${classes}-wrapper`">
     <div :class="`${classes}__player`">
       <button v-if="!simpleControls" @click="stop()" title="Stop" class="icon-stop2" ></button>
-      <button @click="pause()" :title="paused ? ariaLabels.play : ariaLabels.pause" :class="[ paused ? 'icon-play3' : 'icon-pause2' ]"></button>
+      <button @click="pause()" :title="paused ? titles.play : titles.pause" :class="[ paused ? 'icon-play3' : 'icon-pause2' ]"></button>
       <div v-on:click="setPosition" :class="`${classes}__playback-time-wrapper`" title="Time played : Total time">
           <div v-bind:style="progressStyle" :class="`${classes}__playback-time-indicator`"></div>
           <span :class="`${classes}__playback-time-current`">{{currentTime}}</span>

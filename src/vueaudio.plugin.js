@@ -35,7 +35,7 @@ export default {
       type: Boolean,
       default: false
     },
-    ariaLabels: {
+    titles: {
       type: Object,
       default: {
         play: 'Play',
