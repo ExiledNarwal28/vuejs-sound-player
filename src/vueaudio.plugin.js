@@ -35,6 +35,13 @@ export default {
       type: Boolean,
       default: false
     },
+    ariaLabels: {
+      type: Object,
+      default: {
+        play: 'Play',
+        pause: 'Pause',
+      },
+    },
   },
   computed: {
     duration: function () {

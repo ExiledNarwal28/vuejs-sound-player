@@ -1,8 +1,8 @@
 <template>
   <div :class="`${classes}-wrapper`">
     <div :class="`${classes}__player`">
-      <button v-if="!simpleControls || simpleControls && !paused" @click="stop()" title="Stop" class="icon-stop2" ></button>
-      <button v-if="!simpleControls || simpleControls && paused" @click="pause()" title="Play" :class="[ paused ? 'icon-play3' : 'icon-pause2' ]"></button>
+      <button v-if="!simpleControls" @click="stop()" title="Stop" class="icon-stop2" ></button>
+      <button @click="pause()" title="Play" :class="[ paused ? 'icon-play3' : 'icon-pause2' ]" :aria-label="paused ? ariaLabels.play : ariaLabels.pause"></button>
       <div v-on:click="setPosition" :class="`${classes}__playback-time-wrapper`" title="Time played : Total time">
           <div v-bind:style="progressStyle" :class="`${classes}__playback-time-indicator`"></div>
           <span :class="`${classes}__playback-time-current`">{{currentTime}}</span>
