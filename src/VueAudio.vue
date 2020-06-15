@@ -36,6 +36,9 @@
         cursor: pointer;
         display: inline-block;
         vertical-align: middle;
+        outline: none;
+        background: none;
+        border: none;
       }
 
       .#{$prefixCls}__extern-wrapper {
